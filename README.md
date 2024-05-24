@@ -9,9 +9,12 @@ This project is an extension of the original React Stepper Component, designed t
 - Dynamic Step Management: The stepper dynamically manages the current step state.
 - Conditional Rendering: The content is conditionally rendered based on the isOpen state.
 - Reusable Button Component: Buttons are created as reusable components, with customizable styles and content using props.children.
+- Reusable Message Component: Messages are also created as reusable components, utilizing props.children for dynamic content.
 - Smooth State Transitions: State transitions for step changes are handled smoothly using callback functions to ensure the current state is accurately retrieved.
 
 ## Code Structure
+
+- The components are placed in separate files for better organization and maintainability.
 
 #### App Component
 
@@ -29,6 +32,22 @@ function Button({ color, bcolor, onClick, children }) {
     </button>
   );
 }
+```
+
+### Message component
+
+- The Message component is a reusable message container using props.children for dynamic content.
+
+```
+export function Message({ step, children }) {
+  return (
+    <div>
+      <h3 className="message">{step > 0 && `Step ${step}:`}</h3>
+      <p className="message">{children}</p>
+    </div>
+  );
+}
+
 ```
 
 ## How to Use
