@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Button } from "./components/Button";
+import { Message } from "./components/Message";
 
 const messages = [
   "Learn React ⚛️",
@@ -47,9 +49,7 @@ export default function App() {
             <div className={step >= 3 ? "active" : ""}>3</div>
           </div>
 
-          <p className="message">
-            {step > 0 && `Step ${step}: ${messages[step - 1]}`}
-          </p>
+          <Message step={step}>{messages[step - 1]}</Message>
 
           <div className="buttons">
             <Button bcolor="#7950f2" color="#fff" onClick={handlePrevious}>
@@ -62,13 +62,5 @@ export default function App() {
         </div>
       )}
     </>
-  );
-}
-
-function Button({ color, bcolor, onClick, children }) {
-  return (
-    <button style={{ backgroundColor: bcolor, color: color }} onClick={onClick}>
-      {children}
-    </button>
   );
 }
